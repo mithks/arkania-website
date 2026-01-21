@@ -11,6 +11,25 @@ const navItems = [
   { name: 'Contact', href: '/contact' },
 ]
 
+const navVariants = {
+  default: {
+    top: 12,
+    left: '50%',
+    right: 'auto',
+    width: '100%',
+    maxWidth: 1500,
+    x: '-50%',
+  },
+  scrolled: {
+    top: 0,
+    left: 0,
+    right: 0,
+    width: '100%',
+    maxWidth: 'none',
+    x: 0,
+  },
+}
+
 export default function Navigation() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -29,20 +48,25 @@ export default function Navigation() {
 
   return (
     <motion.nav
+      layout
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'top-0 left-0 right-0 w-full' 
-          : 'top-3 md:top-5 left-[100px] transform -translate-x-1/2 w-[98%] max-w-7xl'
-      }`}
+      animate={isScrolled ? { ...navVariants.scrolled, opacity: 1, y: 0 } : { ...navVariants.default, opacity: 1, y: 0 }}
+      variants={navVariants}
+      transition={{
+        duration: 0.6,
+        ease: 'easeOut',
+        layout: { duration: 0.6, ease: 'easeInOut' },
+      }}
+      className="fixed z-50"
     >
-      <div className={`px-8 flex items-center justify-between relative overflow-hidden transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white shadow-lg rounded-b-[30px] py-4' 
-          : 'glass rounded-full py-4'
-      }`}>
+      <motion.div
+        layout
+        className={`flex items-center justify-between relative overflow-hidden transition-all duration-500 ${
+          isScrolled
+            ? 'bg-white shadow-lg rounded-b-[30px] py-4 px-8 w-full'
+            : 'glass rounded-full py-4 px-8'
+        }`}
+      >
         {/* Purple curve accent on left (only visible on white background) */}
         {isScrolled && (
           <motion.div 
@@ -77,7 +101,7 @@ export default function Navigation() {
               className="relative"
             >
               <motion.span
-                className={`text-xl font-medium transition-colors duration-300 ${
+                className={`text-2xl font-medium transition-colors duration-300 ${
                   isScrolled
                     ? item.active
                       ? 'text-gray-900'
@@ -114,7 +138,7 @@ export default function Navigation() {
             </Link>
           ))}
         </div>
-      </div>
+      </motion.div>
     </motion.nav>
   )
 }

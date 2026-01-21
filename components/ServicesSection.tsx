@@ -7,7 +7,7 @@ export default function ServicesSection() {
   return (
     <section className="relative min-h-screen bg-white flex flex-col justify-center items-center px-6 md:px-8 py-20 md:py-32">
       {/* Main Content Container */}
-      <div className="w-full max-w-7xl mx-auto flex flex-col gap-16 md:gap-24">
+      <div className="w-full max-w-[1700px] mx-auto flex flex-col gap-16 md:gap-24">
         {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}

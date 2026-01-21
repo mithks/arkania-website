@@ -35,7 +35,7 @@ export default function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-end"
+        className="w-full max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-end"
       >
         {/* Headline - Left Side */}
         <motion.div
@@ -43,7 +43,7 @@ export default function Hero() {
           className="space-y-4"
         >
           <motion.h1
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
             variants={itemVariants}
           >
             <motion.span
@@ -83,7 +83,7 @@ export default function Hero() {
             onMouseLeave={() => setIsHovered(false)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="glass-dark rounded-full px-8 py-4 text-white font-medium text-lg relative overflow-hidden group"
+            className="glass-dark rounded-full my-8 px-8 py-4 text-white font-medium text-2xl relative overflow-hidden group"
           >
             <motion.span
               className="relative z-10"
