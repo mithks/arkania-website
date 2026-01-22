@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
+import IntroSection from '@/components/IntroSection'
+import ExpertiseSection from '@/components/ExpertiseSection'
 import ServicesSection from '@/components/ServicesSection'
 
 export default function Home() {
@@ -31,6 +33,12 @@ export default function Home() {
           <Hero />
         </div>
       </main>
+
+      {/* Intro Section */}
+      <IntroSection />
+
+      {/* Expertise Section */}
+      <ExpertiseSection />
 
       {/* Services Section */}
       <ServicesSection />

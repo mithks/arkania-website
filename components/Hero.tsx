@@ -43,7 +43,7 @@ export default function Hero() {
           className="space-y-4"
         >
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+            className="text-[64px] font-bold text-white leading-tight"
             variants={itemVariants}
           >
             <motion.span
@@ -83,7 +83,7 @@ export default function Hero() {
             onMouseLeave={() => setIsHovered(false)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="glass-dark rounded-full my-8 px-8 py-4 text-white font-medium text-2xl relative overflow-hidden group"
+            className="glass-dark rounded-full my-8 px-8 py-4 text-white font-medium text-[24px] relative overflow-hidden group"
           >
             <motion.span
               className="relative z-10"
