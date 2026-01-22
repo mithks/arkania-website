@@ -6,6 +6,7 @@ import Hero from '@/components/Hero'
 import IntroSection from '@/components/IntroSection'
 import ExpertiseSection from '@/components/ExpertiseSection'
 import ServicesSection from '@/components/ServicesSection'
+import ContactSection from '@/components/ContactSection'
 
 export default function Home() {
   return (
@@ -42,6 +43,10 @@ export default function Home() {
 
       {/* Services Section */}
       <ServicesSection />
+
+      {/* Contact Section */}
+      <ContactSection />
+
     </>
   )
 }

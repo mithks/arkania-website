@@ -23,12 +23,11 @@ const servicesCards = [
 
 export default function ServicesSection() {
   return (
-    //<section id="services" className="relative min-h-screen bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 overflow-hidden">
     <section
   id="services"
   className="relative min-h-screen bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 overflow-hidden pointer-events-none"
 >
-      <div className="relative z-10 min-h-screen flex flex-col justify-center items-start px-6 md:px-8 py-20 md:py-32">
+<div className="relative min-h-screen flex flex-col justify-center items-start px-6 md:px-8 py-20 md:py-32 pointer-events-auto">
         <div className="w-full max-w-[1700px] mx-auto flex flex-col gap-16 md:gap-24">
           {/* Heading */}
           <motion.div
