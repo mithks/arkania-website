@@ -126,7 +126,7 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
         {/* Logo */}
         <motion.div whileHover={{ scale: 1.05 }} className="relative z-10">
           <Image
-            src={isDarkNav ? '/assets/logo_white.png' : '/assets/logo.png'}
+            src={isDarkNav ? '/assets/logo_white.svg' : '/assets/logo.svg'}
             alt="Arkania Logo"
             width={120}
             height={40}
