@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 export default function IntroSection() {
   return (
@@ -21,7 +20,7 @@ export default function IntroSection() {
           </p>
         </motion.div>
 
-        {/* Conveyor Illustration */}
+        {/* Conveyor Video Animation */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,14 +29,18 @@ export default function IntroSection() {
           className="w-full flex justify-center"
         >
           <div className="relative w-full max-w-5xl">
-            <Image
-              src="/assets/conveyor.png"
-              alt="Warehouse conveyor belt with boxes"
-              width={1200}
-              height={600}
+            {/* Video Player */}
+            <video
+              src="/assets/conveyor.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-auto object-contain"
-              priority
             />
+            
+            {/* Optional: Add a transparent overlay if you need to prevent clicking/pausing */}
+            <div className="absolute inset-0 bg-transparent" />
           </div>
         </motion.div>
       </div>
