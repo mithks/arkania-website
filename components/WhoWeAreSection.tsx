@@ -22,7 +22,7 @@ export default function WhoWeAreSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex items-center px-6 md:px-8">
+      <div className="relative z-10 min-h-screen flex items-center px-18 md:px-24">
         <div className="w-full max-w-[1700px] mx-auto">
 
           <motion.div
