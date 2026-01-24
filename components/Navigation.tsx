@@ -89,7 +89,6 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth',
     })
   }
 

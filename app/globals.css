@@ -27,9 +27,10 @@
 /* ================================
    Base HTML / Body
 ================================ */
-html {
+/*html {
   scroll-behavior: smooth;
 }
+*/
 
 body {
   font-family: var(--font-manrope), system-ui, -apple-system, BlinkMacSystemFont,
