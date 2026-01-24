@@ -3,14 +3,14 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
 const navItems = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Contact', href: '/#contact' },
 ]
 
 const navVariants = {
@@ -38,20 +38,28 @@ interface NavigationProps {
 
 export default function Navigation({ darkBackground = false }: NavigationProps) {
   const pathname = usePathname()
+  const router = useRouter()
 
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState<string | null>(null)
 
+  /* ----------------------------------
+     Scroll spy (HOME page only)
+  ---------------------------------- */
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      const viewportHeight = window.innerHeight
+    if (pathname !== '/') {
+      setActiveSection(null)
+      return
+    }
 
-      setIsScrolled(scrollPosition > viewportHeight * 0.8)
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const viewportHeight = window.innerHeight
+      setIsScrolled(scrollY > viewportHeight * 0.8)
 
       const sections = ['services', 'contact']
-      let currentSection: string | null = null
+      let current: string | null = null
 
       sections.forEach((id) => {
         const el = document.getElementById(id)
@@ -61,11 +69,11 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
         const navHeight = 100
 
         if (rect.top <= navHeight && rect.bottom >= navHeight) {
-          currentSection = `#${id}`
+          current = id
         }
       })
 
-      setActiveSection(currentSection)
+      setActiveSection(current)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -76,24 +84,25 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleScroll)
     }
-  }, [])
+  }, [pathname])
 
-  const handleSectionScroll = (id: string) => {
-    const element = document.getElementById(id)
-    if (!element) return
+  /* ----------------------------------
+     Smooth scroll helper
+  ---------------------------------- */
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (!el) return
 
     const navHeight = 100
-    const elementPosition =
-      element.getBoundingClientRect().top + window.pageYOffset
-    const offsetPosition = elementPosition - navHeight
+    const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight
 
     window.scrollTo({
-      top: offsetPosition+100,
+      top: y+100,
       behavior: 'smooth',
     })
   }
 
-  const isDarkNav = darkBackground || activeSection === '#services'
+  const isDarkNav = darkBackground || activeSection === 'services'
 
   return (
     <motion.nav
@@ -113,7 +122,7 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
     >
       <motion.div
         layout
-        className={`flex items-center justify-between relative overflow-hidden transition-all duration-500 pointer-events-auto ${
+        className={`flex items-center justify-between relative overflow-hidden transition-all duration-500 ${
           isDarkNav
             ? isScrolled
               ? 'glass-dark shadow-lg rounded-b-[30px] py-6 px-8 w-full'
@@ -124,7 +133,7 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
         }`}
       >
         {/* Logo */}
-        <motion.div whileHover={{ scale: 1.05 }} className="relative z-10">
+        <motion.div whileHover={{ scale: 1.05 }}>
           <Image
             src={isDarkNav ? '/assets/logo_white.svg' : '/assets/logo.svg'}
             alt="Arkania Logo"
@@ -135,22 +144,36 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
         </motion.div>
 
         {/* Navigation Links */}
-        <div className="flex items-center gap-10 relative z-10 mr-8 md:mr-16">
+        <div className="flex items-center gap-10 mr-8 md:mr-16">
           {navItems.map((item) => {
+            const isSectionLink = item.href.startsWith('/#')
+            const sectionId = isSectionLink
+              ? item.href.replace('/#', '')
+              : null
+
             let isActive = false
 
-            if (item.href.startsWith('#')) {
-              isActive = activeSection === item.href
-            } else {
-              isActive = pathname === item.href && !activeSection
+            // Page links
+            if (!isSectionLink) {
+              isActive = pathname === item.href
+            }
+
+            // Section links (only active on home)
+            if (isSectionLink && pathname === '/') {
+              isActive = activeSection === sectionId
             }
 
             const handleClick = (
               e: React.MouseEvent<HTMLAnchorElement>
             ) => {
-              if (item.href.startsWith('#')) {
-                e.preventDefault()
-                handleSectionScroll(item.href.replace('#', ''))
+              if (!isSectionLink) return
+
+              e.preventDefault()
+
+              if (pathname === '/') {
+                scrollToSection(sectionId!)
+              } else {
+                router.push(`/#${sectionId}`)
               }
             }
 
