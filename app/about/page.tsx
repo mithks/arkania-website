@@ -3,6 +3,7 @@
 import Navigation from '@/components/Navigation'
 import AboutHero from '@/components/AboutHero'
 import WhoWeAreSection from '@/components/WhoWeAreSection'
+import WhoWeAreSection2 from '@/components/WhoWeAreSection2'
 import Footer from '@/components/Footer'
 
 export default function AboutPage() {
@@ -19,6 +20,7 @@ export default function AboutPage() {
         <div id="what-clients-say" />
       </main>
       <WhoWeAreSection />
+      <WhoWeAreSection2 />
       <Footer />
     </>
   )
