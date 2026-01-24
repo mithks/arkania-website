@@ -26,7 +26,7 @@ function FooterLink({
       const y =
         el.getBoundingClientRect().top + window.pageYOffset - navHeight
 
-      window.scrollTo({ top: y })
+      window.scrollTo({ top: y+100, behavior: 'smooth' })
     }
   }
 

@@ -88,7 +88,8 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
     const offsetPosition = elementPosition - navHeight
 
     window.scrollTo({
-      top: offsetPosition,
+      top: offsetPosition+100,
+      behavior: 'smooth',
     })
   }
 

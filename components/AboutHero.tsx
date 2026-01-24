@@ -37,7 +37,7 @@ export default function AboutHero() {
     const navHeight = 100
     const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight
 
-    window.scrollTo({ top: y })
+    window.scrollTo({ top: y+100, behavior: 'smooth' })
   }
 
   return (
