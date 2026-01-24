@@ -8,7 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'arkania-purple': '#8B5CF6',
+        primary: '#4A148C',
+        secondary: '#B24BF3',
+        dark: '#0F172A',
+        light: '#F8FAFC',
       },
       fontFamily: {
         sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],

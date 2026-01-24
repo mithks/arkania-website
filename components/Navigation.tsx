@@ -119,7 +119,7 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
               ? 'glass-dark shadow-lg rounded-b-[30px] py-6 px-8 w-full'
               : 'glass-dark rounded-full py-6 px-8'
             : isScrolled
-              ? 'bg-white shadow-lg rounded-b-[30px] py-6 px-8 w-full'
+              ? 'bg-light shadow-lg rounded-b-[30px] py-6 px-8 w-full'
               : 'glass rounded-full py-6 px-8'
         }`}
       >
@@ -168,15 +168,15 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
                   className={`text-[24px] font-medium transition-colors duration-300 ${
                     isDarkNav
                       ? isActive
-                        ? 'text-arkania-purple'
-                        : 'text-arkania-purple/80 hover:text-arkania-purple'
+                        ? 'text-secondary'
+                        : 'text-light/80 hover:text-light'
                       : isScrolled
                         ? isActive
-                          ? 'text-gray-900'
-                          : 'text-gray-700 hover:text-gray-900'
+                          ? 'text-secondary'
+                          : 'text-dark/70 hover:text-dark'
                         : isActive
-                          ? 'text-white'
-                          : 'text-white/80 hover:text-white'
+                          ? 'text-secondary'
+                          : 'text-light/80 hover:text-light'
                   }`}
                 >
                   {item.name}
@@ -185,26 +185,18 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
                 {isActive && (
                   <motion.div
                     layoutId="activeIndicator"
-                    className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${
-                      isDarkNav
-                        ? 'bg-arkania-purple'
-                        : isScrolled
-                          ? 'bg-gray-900'
-                          : 'bg-white'
-                    }`}
-                    transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-secondary"
+                    transition={{
+                      type: 'spring',
+                      stiffness: 500,
+                      damping: 30,
+                    }}
                   />
                 )}
 
                 {hoveredItem === item.name && !isActive && (
                   <motion.div
-                    className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${
-                      isDarkNav
-                        ? 'bg-arkania-purple/50'
-                        : isScrolled
-                          ? 'bg-gray-700/50'
-                          : 'bg-white/50'
-                    }`}
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-primary"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}

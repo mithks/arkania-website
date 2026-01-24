@@ -41,8 +41,8 @@ export default function Hero() {
         playsInline
       />
 
-      {/* Optional dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-dark/60" />
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex items-end pb-8 md:pb-16 px-6 md:px-8">
@@ -53,12 +53,9 @@ export default function Hero() {
           className="w-full max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-end"
         >
           {/* Headline - Left Side */}
-          <motion.div
-            variants={itemVariants}
-            className="space-y-4"
-          >
+          <motion.div variants={itemVariants} className="space-y-4">
             <motion.h1
-              className="text-[64px] font-bold text-white leading-tight"
+              className="text-[64px] font-bold text-light leading-tight"
               variants={itemVariants}
             >
               <motion.span
@@ -89,25 +86,28 @@ export default function Hero() {
           </motion.div>
 
           {/* CTA Button - Right Side */}
-          <motion.div
-            variants={itemVariants}
-            className="flex justify-end"
-          >
+          <motion.div variants={itemVariants} className="flex justify-end">
             <motion.button
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="glass-dark rounded-full my-8 px-8 py-4 text-white font-medium text-[24px] relative overflow-hidden group"
+              className="
+                glass-dark rounded-full my-8 px-8 py-4
+                text-light font-medium text-[24px]
+                relative overflow-hidden group
+              "
             >
-              <motion.span
-                className="relative z-10"
-                animate={{ x: isHovered ? 0 : 0 }}
-              >
+              <motion.span className="relative z-10">
                 Schedule a demo
               </motion.span>
+
+              {/* Hover gradient */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-arkania-purple/20 to-transparent"
+                className="
+                  absolute inset-0
+                  bg-gradient-to-r from-primary/30 to-transparent
+                "
                 initial={{ x: '-100%' }}
                 animate={{ x: isHovered ? '0%' : '-100%' }}
                 transition={{ duration: 0.3 }}

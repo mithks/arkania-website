@@ -6,24 +6,33 @@ import Image from 'next/image'
 const expertiseCards = [
   {
     title: 'Extended Warehouse\nManagement',
-    description: 'Optimize your warehouse operations with intelligent automation, real-time inventory tracking, and advanced resource management.',
+    description:
+      'Optimize your warehouse operations with intelligent automation, real-time inventory tracking, and advanced resource management.',
     image: '/assets/ewm_card.png',
   },
   {
     title: 'Transportation\nManagement',
-    description: 'Streamline your logistics with comprehensive transportation planning, execution, and freight management solutions.',
+    description:
+      'Streamline your logistics with comprehensive transportation planning, execution, and freight management solutions.',
     image: '/assets/tm_card.png',
   },
   {
     title: 'Custom\nTailored\nSolutions',
-    description: 'Address unique business requirements with bespoke SAP extensions, seamless system integrations, and scalable software architecture.',
+    description:
+      'Address unique business requirements with bespoke SAP extensions, seamless system integrations, and scalable software architecture.',
     image: '/assets/custom_card.png',
+  },
+  {
+    title: 'Integration\nwith AI',
+    description:
+      'Leverage cutting-edge AI and machine learning to enhance decision-making and automate complex supply chain processes.',
+    image: '/assets/ai_card.png',
   },
 ]
 
 export default function ExpertiseSection() {
   return (
-    <section className="relative min-h-screen bg-white flex flex-col justify-end items-center px-6 md:px-8 pb-0 md:pb-0 pt-12 md:pt-16">
+    <section className="relative min-h-screen bg-light flex flex-col justify-end items-center px-6 md:px-8 pb-0 md:pb-0 pt-12 md:pt-16">
       <div className="w-full max-w-[1700px] mx-auto flex flex-col gap-12 md:gap-16">
         {/* Heading */}
         <motion.div
@@ -48,23 +57,27 @@ export default function ExpertiseSection() {
               className="w-full h-full object-contain"
             />
           </motion.div>
-          <h2 className="text-[64px] font-bold text-gray-900 leading-tight">
+
+          <h2 className="text-[64px] font-bold text-dark leading-tight">
             Expertise That Drives Excellence
           </h2>
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {expertiseCards.map((card, index) => (
             <motion.div
               key={card.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: index * 0.2 }}
+              transition={{
+                duration: 0.8,
+                ease: 'easeOut',
+                delay: index * 0.1,
+              }}
               className="relative group rounded-t-2xl rounded-b-none overflow-hidden cursor-pointer"
             >
-              {/* Card with background image */}
               <div className="relative h-[500px] md:h-[700px] overflow-hidden rounded-lg">
                 {/* Background Image */}
                 <div
@@ -73,13 +86,14 @@ export default function ExpertiseSection() {
                     backgroundImage: `url(${card.image})`,
                   }}
                 />
-                
+
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-start p-6 md:p-8">
-                  <h3 className="text-[36px] font-bold text-arkania-purple mb-3 whitespace-pre-line">
+                  <h3 className="text-[36px] font-bold text-secondary mb-3 whitespace-pre-line">
                     {card.title}
                   </h3>
-                  <p className="text-white text-[24px] leading-relaxed text-left">
+
+                  <p className="text-light text-[24px] leading-relaxed text-left">
                     {card.description}
                   </p>
                 </div>

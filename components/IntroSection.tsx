@@ -4,46 +4,35 @@ import { motion } from 'framer-motion'
 
 export default function IntroSection() {
   return (
-    <section className="relative min-h-screen bg-white flex flex-col justify-center items-center px-6 md:px-8 py-20 md:py-32">
-      {/* Main Content Container */}
-      <div className="w-full max-w-[1700px] mx-auto flex flex-col gap-16 md:gap-24">
-        {/* Text Content */}
+    <section className="relative min-h-screen bg-light flex flex-col justify-center items-center px-6 md:px-8 overflow-hidden">
+      
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          src="/assets/conveyor.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto -mt-48">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="max-w-10xl"
+          className="max-w-8xl"
         >
-          <p className="text-[64px] font-bold text-gray-900 leading-tight">
-            Arkania delivers cutting-edge SAP solutions in Extended Warehouse Management, Transportation Management, and custom tailored development to optimize your operations.
+          <p className="text-[48px] md:text-[64px] font-bold text-dark leading-tight">
+            Arkania solves your toughest logistics challenges with intelligent, precision-engineered SAP solutions that transform complexity into seamless performance.
           </p>
         </motion.div>
-
-        {/* Conveyor Video Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          className="w-full flex justify-center"
-        >
-          <div className="relative w-full max-w-5xl">
-            {/* Video Player */}
-            <video
-              src="/assets/conveyor.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-auto object-contain"
-            />
-            
-            {/* Optional: Add a transparent overlay if you need to prevent clicking/pausing */}
-            <div className="absolute inset-0 bg-transparent" />
-          </div>
-        </motion.div>
       </div>
+      
     </section>
   )
 }

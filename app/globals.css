@@ -2,28 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================================
+   Global Reset
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ================================
+   Design Tokens (Color Palette)
+================================ */
+:root {
+  /* Brand Purples */
+  --color-primary: #4A148C;     /* Primary Purple */
+  --color-secondary: #B24BF3;   /* Secondary Purple */
+
+  /* Core Neutrals */
+  --color-dark: #0F172A;        /* Dark */
+  --color-light: #F8FAFC;       /* Light */
+}
+
+/* ================================
+   Base HTML / Body
+================================ */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-manrope), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-manrope), system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+
   letter-spacing: -0.04em; /* -4% letter spacing */
   overflow-x: hidden;
+
+  background-color: var(--color-dark);
+  color: var(--color-light);
 }
 
-/* Apply -4% letter spacing to all text elements */
-h1, h2, h3, h4, h5, h6, p, span, a, button, li, td, th, label, input, textarea {
+/* Apply -4% letter spacing globally */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+li,
+td,
+th,
+label,
+input,
+textarea {
   letter-spacing: -0.04em;
 }
 
-/* Glassmorphism effect */
+/* ================================
+   Glassmorphism (UNCHANGED)
+================================ */
 .glass {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -38,25 +79,29 @@ h1, h2, h3, h4, h5, h6, p, span, a, button, li, td, th, label, input, textarea {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Smooth transitions */
+/* ================================
+   Transitions
+================================ */
 .transition-smooth {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Custom scrollbar */
+/* ================================
+   Custom Scrollbar (Brand Aligned)
+================================ */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--color-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8B5CF6;
+  background: var(--color-primary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7C3AED;
+  background: var(--color-secondary);
 }
