@@ -12,7 +12,7 @@ export default function WhoWeAreSection3() {
 
   return (
     <section className="relative bg-light py-20 overflow-hidden">
-      <div className="max-w-[1700px] mx-auto px-6 md:px-8">
+      <div className="max-w-[1700px] mx-auto px-18 md:px-24">
 
         {/* Heading */}
         <h2 className="text-[64px] font-bold text-primary mb-10">

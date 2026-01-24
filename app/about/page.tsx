@@ -5,6 +5,8 @@ import AboutHero from '@/components/AboutHero'
 import WhoWeAreSection from '@/components/WhoWeAreSection'
 import WhoWeAreSection2 from '@/components/WhoWeAreSection2'
 import WhoWeAreSection3 from '@/components/WhoWeAreSection3'
+import WhyWeExistSection from '@/components/WhyWeExistSection'
+import WhatOurClientsSaySection from '@/components/WhatOurClientsSaySection'
 import Footer from '@/components/Footer'
 
 export default function AboutPage() {
@@ -15,14 +17,13 @@ export default function AboutPage() {
       <main>
         <AboutHero />
 
-        {/* Future sections (anchors already wired) */}
-        <div id="who-we-are" />
-        <div id="why-we-exist" />
-        <div id="what-clients-say" />
-      </main>
+
       <WhoWeAreSection />
       <WhoWeAreSection2 />
       <WhoWeAreSection3 />
+      <WhyWeExistSection />
+      <WhatOurClientsSaySection />
+      </main>
       <Footer />
     </>
   )
