@@ -45,18 +45,22 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
   const [activeSection, setActiveSection] = useState<string | null>(null)
 
   /* ----------------------------------
-     Scroll spy (HOME page only)
+     Scroll handling (ALL pages)
+     Section spy (HOME only)
   ---------------------------------- */
   useEffect(() => {
-    if (pathname !== '/') {
-      setActiveSection(null)
-      return
-    }
-
     const handleScroll = () => {
       const scrollY = window.scrollY
       const viewportHeight = window.innerHeight
+
+      // ✅ Navbar shape change on ALL pages
       setIsScrolled(scrollY > viewportHeight * 0.8)
+
+      // ❗ Section spy ONLY on home page
+      if (pathname !== '/') {
+        setActiveSection(null)
+        return
+      }
 
       const sections = ['services', 'contact']
       let current: string | null = null
@@ -87,7 +91,7 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
   }, [pathname])
 
   /* ----------------------------------
-     Smooth scroll helper
+     Smooth section scroll (HOME only)
   ---------------------------------- */
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
@@ -97,7 +101,7 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
     const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight
 
     window.scrollTo({
-      top: y+100,
+      top: y + 100,
       behavior: 'smooth',
     })
   }
@@ -158,14 +162,12 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
               isActive = pathname === item.href
             }
 
-            // Section links (only active on home)
+            // Section links (active only on home)
             if (isSectionLink && pathname === '/') {
               isActive = activeSection === sectionId
             }
 
-            const handleClick = (
-              e: React.MouseEvent<HTMLAnchorElement>
-            ) => {
+            const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
               if (!isSectionLink) return
 
               e.preventDefault()
