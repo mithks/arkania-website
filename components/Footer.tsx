@@ -121,10 +121,10 @@ export default function Footer() {
               Solutions
             </h4>
             <ul className="flex flex-col gap-4 text-[20px] text-light/80">
-              <li>SAP EWM</li>
-              <li>SAP TM</li>
-              <li>AI Integration</li>
-              <li>SAP Consulting</li>
+              <li><FooterLink href="/services/ewm">SAP EWM</FooterLink></li>
+              <li><FooterLink href="/services/tm">SAP TM</FooterLink></li>
+              <li><FooterLink href="/services/ai">AI Integration</FooterLink></li>
+              <li><FooterLink href="/services/custom">Custom Dev</FooterLink></li>
             </ul>
           </div>
 
