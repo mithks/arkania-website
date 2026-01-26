@@ -135,9 +135,8 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-4 text-[20px] text-light/80">
               <li><FooterLink href="/about">About Us</FooterLink></li>
-              <li><FooterLink href="#">Why Choose Us</FooterLink></li>
+              <li><FooterLink href="/about/#why-we-exist">Why Choose Us</FooterLink></li>
               <li><FooterLink href="#contact">Contact</FooterLink></li>
-              <li><FooterLink href="#">Careers</FooterLink></li>
             </ul>
           </div>
         </motion.div>
