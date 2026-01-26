@@ -49,6 +49,13 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      rows: 3,
+      description: 'Short summary shown on blog cards',
+    }),
   ],
 
   preview: {

@@ -86,7 +86,7 @@ export default function ContactSection() {
       setEmail('')
       setMessage('')
       setStatus('success')
-    } catch (err) {
+    } catch {
       setStatus('error')
     } finally {
       setLoading(false)
@@ -99,7 +99,7 @@ export default function ContactSection() {
       className="relative min-h-screen bg-light px-6 md:px-8 py-48 md:py-64 overflow-hidden"
     >
       {/* Background Accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(168,85,247,0.10),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(168,85,247,0.12),transparent_60%)]" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-20 items-start">
@@ -116,7 +116,7 @@ export default function ContactSection() {
               Let’s Connect.
             </h2>
 
-            <p className="text-[20px] md:text-[24px] text-dark/80 font-medium mb-12 max-w-lg leading-relaxed">
+            <p className="text-[20px] md:text-[24px] text-dark/70 font-medium mb-12 max-w-lg leading-relaxed">
               Connect with us to discuss solutions tailored to your business.
             </p>
           </motion.div>
@@ -130,8 +130,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
             className="
               relative rounded-3xl p-10
-              bg-gradient-to-br from-white/80 to-white/40
-              backdrop-blur-xl
+              glass
               border border-primary/30
               shadow-[0_20px_60px_rgba(15,23,42,0.18)]
             "
@@ -145,7 +144,7 @@ export default function ContactSection() {
                 onChange={e => setName(e.target.value)}
                 className="
                   w-full rounded-xl px-5 py-4
-                  bg-white/70
+                  bg-light/80
                   border border-dark/10
                   text-dark placeholder:text-dark/50
                   focus:outline-none focus:ring-2 focus:ring-primary/40
@@ -160,7 +159,7 @@ export default function ContactSection() {
                 onChange={e => setEmail(e.target.value)}
                 className="
                   w-full rounded-xl px-5 py-4
-                  bg-white/70
+                  bg-light/80
                   border border-dark/10
                   text-dark placeholder:text-dark/50
                   focus:outline-none focus:ring-2 focus:ring-primary/40
@@ -175,7 +174,7 @@ export default function ContactSection() {
                 onChange={e => setMessage(e.target.value)}
                 className="
                   w-full rounded-xl px-5 py-4
-                  bg-white/70
+                  bg-light/80
                   border border-dark/10
                   text-dark placeholder:text-dark/50
                   resize-none
@@ -187,12 +186,12 @@ export default function ContactSection() {
                 type="submit"
                 disabled={loading}
                 className={`
-                  w-full rounded-full py-4 font-semibold text-lg
+                  w-full rounded-full py-4 font-semibold text-[20px]
                   transition-all shadow-lg
                   ${
                     loading
-                      ? 'bg-primary/60 cursor-not-allowed'
-                      : 'bg-primary hover:bg-secondary text-white'
+                      ? 'bg-primary/60 cursor-not-allowed text-light'
+                      : 'bg-primary hover:bg-secondary text-light'
                   }
                 `}
               >
@@ -201,13 +200,13 @@ export default function ContactSection() {
 
               {/* STATUS MESSAGE */}
               {status === 'success' && (
-                <p className="text-green-600 text-center font-medium">
+                <p className="text-secondary text-center font-medium">
                   Message sent successfully!
                 </p>
               )}
 
               {status === 'error' && (
-                <p className="text-red-600 text-center font-medium">
+                <p className="text-red-500 text-center font-medium">
                   Failed to send message. Try again.
                 </p>
               )}
