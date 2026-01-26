@@ -1,9 +1,11 @@
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+export const fetchCache = 'force-no-store'
+
 import Link from 'next/link'
 import { sanityClient, urlFor } from '@/lib/sanity'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-
-export const dynamic = 'force-dynamic'
 
 export default async function BlogPage() {
   const posts = await sanityClient.fetch(`
