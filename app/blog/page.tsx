@@ -3,6 +3,8 @@ import { sanityClient, urlFor } from '@/lib/sanity'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
+export const dynamic = 'force-dynamic'
+
 export default async function BlogPage() {
   const posts = await sanityClient.fetch(`
     *[_type == "post"] | order(publishedAt desc) {
