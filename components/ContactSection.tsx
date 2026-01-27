@@ -60,6 +60,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import ArkaniaTextReveal from '@/components/ArkaniaTextReveal'
 
 export default function ContactSection() {
   const [name, setName] = useState('')
@@ -110,8 +111,9 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="max-w-2xl"
+            className="max-w-2xl flex flex-col gap-8"
           >
+            
             <h2 className="text-[56px] md:text-[80px] font-bold text-dark leading-tight mb-6">
               Let’s Connect.
             </h2>
@@ -119,6 +121,23 @@ export default function ContactSection() {
             <p className="text-[20px] md:text-[24px] text-dark/70 font-medium mb-12 max-w-lg leading-relaxed">
               Connect with us to discuss solutions tailored to your business.
             </p>
+
+            {/* Interactive Text */}
+            <div className="relative hidden md:flex items-center justify-center">
+            <div
+              className=" absolute left-0 -bottom-[95px]
+                h-px w-64
+                bg-gradient-to-r
+                from-dark/60
+                via-dark/30
+                to-transparent
+                transition-all duration-300
+                group-hover:from-secondary/60
+              "
+            />
+              <ArkaniaTextReveal />
+            </div>
+
           </motion.div>
 
           {/* RIGHT FORM */}
