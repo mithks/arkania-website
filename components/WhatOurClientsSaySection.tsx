@@ -10,11 +10,11 @@ const logos = [
   '/assets/sony_logo.png',
   '/assets/builders_logo.png',
   '/assets/lumen_logo.png',
-  '/assets/company6_logo.png',
-  '/assets/company7_logo.png',
-  '/assets/company8_logo.png',
-  '/assets/company9_logo.png',
-  '/assets/company10_logo.png',
+  '/assets/benjamin_moore_logo.png',
+  '/assets/adtran_logo.png',
+  '/assets/cardone_logo.png',
+  '/assets/grassvalley_logo.png',
+  '/assets/penumbra_logo.png',
 ]
 
 const testimonials = [
