@@ -59,7 +59,7 @@ export default async function BlogPost({
       )}
 
       {/* Content */}
-      <div className="prose prose-lg max-w-none text-gray-500">
+      <div className="prose prose-xl max-w-none text-dark">
         <PortableTextRenderer value={post.body} />
       </div>
 

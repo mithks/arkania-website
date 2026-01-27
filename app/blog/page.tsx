@@ -42,7 +42,7 @@ export default async function BlogPage() {
             {/* Card */}
             <div
               className="
-                glass
+                bg-dark
                 rounded-3xl
                 overflow-hidden
                 border border-primary/20
@@ -76,7 +76,7 @@ export default async function BlogPage() {
 
                 {/* Title */}
                 <h2 className="
-                  text-[36px] font-bold text-dark
+                  text-[36px] font-bold text-light
                   group-hover:text-secondary
                   transition-colors
                 ">

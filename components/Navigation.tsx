@@ -156,17 +156,24 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
               ? item.href.replace('/#', '')
               : null
 
-            let isActive = false
+              let isActive = false
 
-            // Page links
-            if (!isSectionLink) {
-              isActive = pathname === item.href
-            }
-
-            // Section links (active only on home)
-            if (isSectionLink && pathname === '/') {
-              isActive = activeSection === sectionId
-            }
+              // 🔥 HARD-CODE HOME BEHAVIOR
+              if (item.href === '/') {
+                // Home is active ONLY when no section is active
+                isActive = pathname === '/' && activeSection === null
+              }
+              
+              // Section links (Services / Contact)
+              else if (isSectionLink && pathname === '/') {
+                isActive = activeSection === sectionId
+              }
+              
+              // Normal pages (About / Blogs)
+              else {
+                isActive = pathname === item.href
+              }
+              
 
             const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
               if (!isSectionLink) return
