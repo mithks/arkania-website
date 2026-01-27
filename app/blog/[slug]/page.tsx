@@ -3,6 +3,7 @@ export const revalidate = 0
 export const fetchCache = 'force-no-store'
 
 import { sanityClient, urlFor } from '@/lib/sanity'
+import PortableTextRenderer from '@/components/PortableTextRenderer'
 
 export default async function BlogPost({
   params,
@@ -58,15 +59,8 @@ export default async function BlogPost({
       )}
 
       {/* Content */}
-      <div className="space-y-8">
-        {post.body?.map((block: any, i: number) => (
-          <p
-            key={i}
-            className="text-[24px] text-dark/80 leading-relaxed"
-          >
-            {block.children?.[0]?.text}
-          </p>
-        ))}
+      <div className="prose prose-lg max-w-none text-gray-500">
+        <PortableTextRenderer value={post.body} />
       </div>
 
       <div className="flex items-center gap-4 mt-6">
@@ -79,7 +73,9 @@ export default async function BlogPost({
         )}
 
         <div>
-          <p className="font-medium text-gray-500">{post.author.name}</p>
+        <p className="font-medium text-gray-500">
+          {post.author?.name || 'Arkania Team'}
+        </p>
           <p className="text-sm text-gray-500">Author</p>
         </div>
       </div>
