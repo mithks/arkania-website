@@ -14,7 +14,11 @@ export default async function BlogPage() {
       slug,
       publishedAt,
       excerpt,
-      mainImage
+      mainImage,
+      "author": author->{
+      name,
+      image
+      }
     }
   `)
 
@@ -78,6 +82,10 @@ export default async function BlogPage() {
                 ">
                   {post.title}
                 </h2>
+
+                <p className="text-sm text-gray-500 mt-1">
+                  By {post.author?.name || 'Arkania Team'}
+                </p>
 
                 {/* Excerpt */}
                 {post.excerpt && (

@@ -16,8 +16,10 @@ export default async function BlogPost({
       body,
       mainImage,
       publishedAt,
-      author->{
-        name
+      "author": author->{
+        name,
+        image,
+        bio
       }
     }
     `,
@@ -65,6 +67,21 @@ export default async function BlogPost({
             {block.children?.[0]?.text}
           </p>
         ))}
+      </div>
+
+      <div className="flex items-center gap-4 mt-6">
+        {post.author?.image && (
+          <img
+            src={urlFor(post.author.image).width(48).height(48).url()}
+            alt={post.author.name}
+            className="rounded-full"
+          />
+        )}
+
+        <div>
+          <p className="font-medium text-gray-500">{post.author.name}</p>
+          <p className="text-sm text-gray-500">Author</p>
+        </div>
       </div>
 
     </article>
