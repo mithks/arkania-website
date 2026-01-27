@@ -2,9 +2,31 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 
 export default function Hero() {
   const [isHovered, setIsHovered] = useState(false)
+
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const handleScheduleClick = () => {
+    if (pathname === '/') {
+      const el = document.getElementById('contact')
+      if (!el) return
+
+      const navHeight = 100
+      const y =
+        el.getBoundingClientRect().top + window.pageYOffset - navHeight
+
+      window.scrollTo({
+        top: y + 100,
+        behavior: 'smooth',
+      })
+    } else {
+      router.push('/#contact')
+    }
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -41,7 +63,7 @@ export default function Hero() {
         playsInline
       />
 
-      {/* Dark overlay for readability */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-dark/60" />
 
       {/* Content */}
@@ -52,11 +74,10 @@ export default function Hero() {
           animate="visible"
           className="w-full max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-end"
         >
-          {/* Headline - Left Side */}
+          {/* Headline */}
           <motion.div variants={itemVariants} className="space-y-4">
             <motion.h1
               className="text-[64px] font-bold text-light leading-tight"
-              variants={itemVariants}
             >
               <motion.span
                 className="block"
@@ -66,6 +87,7 @@ export default function Hero() {
               >
                 Transform your
               </motion.span>
+
               <motion.span
                 className="block"
                 initial={{ opacity: 0, x: -50 }}
@@ -74,6 +96,7 @@ export default function Hero() {
               >
                 Supply Chain
               </motion.span>
+
               <motion.span
                 className="block"
                 initial={{ opacity: 0, x: -50 }}
@@ -85,9 +108,10 @@ export default function Hero() {
             </motion.h1>
           </motion.div>
 
-          {/* CTA Button - Right Side */}
+          {/* CTA */}
           <motion.div variants={itemVariants} className="flex justify-end">
             <motion.button
+              onClick={handleScheduleClick}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               whileHover={{ scale: 1.05 }}
@@ -98,9 +122,9 @@ export default function Hero() {
                 relative overflow-hidden group
               "
             >
-              <motion.span className="relative z-10">
+              <span className="relative z-10">
                 Schedule a demo
-              </motion.span>
+              </span>
 
               {/* Hover gradient */}
               <motion.div
