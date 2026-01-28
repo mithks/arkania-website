@@ -80,6 +80,19 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.phone-input input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #0F172A;
+}
+
+.phone-input .PhoneInputCountrySelect {
+  background: transparent;
+  color: #4A148C;
+}
+
 /* ================================
    Transitions
 ================================ */
