@@ -2,10 +2,10 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 export const fetchCache = 'force-no-store'
 
-import Link from 'next/link'
-import { sanityClient, urlFor } from '@/lib/sanity'
+import { sanityClient } from '@/lib/sanity'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import BlogGrid from '@/components/BlogGrid'
 
 export default async function BlogPage() {
   const posts = await sanityClient.fetch(`
@@ -15,91 +15,31 @@ export default async function BlogPage() {
       publishedAt,
       excerpt,
       mainImage,
-      "author": author->{
-      name,
-      image
-      }
+      "author": author->{ name },
+      "categories": categories[]->{ title, slug }
+    }
+  `)
+
+  const categories = await sanityClient.fetch(`
+    *[_type == "category"] | order(title asc) {
+      title,
+      slug
     }
   `)
 
   return (
     <>
-    <Navigation darkBackground />
-    <section className="max-w-[1700px] mx-auto px-6 md:px-8 py-48 bg-light">
-      
-      {/* Page Heading */}
-      <h1 className="text-[64px] mx-12 font-bold text-dark mb-20">
-        Insights and Expertise
-      </h1>
+      <Navigation darkBackground />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-        {posts.map((post: any) => (
-          <Link
-            key={post.slug.current}
-            href={`/blog/${post.slug.current}`}
-            className="group"
-          >
-            {/* Card */}
-            <div
-              className="
-                bg-dark
-                rounded-3xl
-                overflow-hidden
-                border border-primary/20
-                hover:border-secondary/60
-                transition-all duration-300
-              "
-            >
-              {/* Image */}
-              {post.mainImage && (
-                <div className="overflow-hidden">
-                  <img
-                    src={urlFor(post.mainImage).width(600).height(400).url()}
-                    alt={post.title}
-                    className="
-                      w-full h-64 object-cover
-                      transition-transform duration-500
-                      group-hover:scale-110
-                    "
-                  />
-                </div>
-              )}
+      <section className="max-w-[1700px] mx-auto px-6 md:px-8 py-36 bg-light">
+        <h1 className="text-[64px] mx-12 font-bold text-dark mb-10">
+          Insights and Expertise
+        </h1>
 
-              {/* Content */}
-              <div className="p-8">
-                {/* Date */}
-                {post.publishedAt && (
-                  <p className="text-[20px] text-dark/60 mb-3">
-                    {new Date(post.publishedAt).toDateString()}
-                  </p>
-                )}
+        <BlogGrid posts={posts} categories={categories} />
+      </section>
 
-                {/* Title */}
-                <h2 className="
-                  text-[36px] font-bold text-light
-                  group-hover:text-secondary
-                  transition-colors
-                ">
-                  {post.title}
-                </h2>
-
-                <p className="text-sm text-gray-500 mt-1">
-                  By {post.author?.name || 'Arkania Team'}
-                </p>
-
-                {/* Excerpt */}
-                {post.excerpt && (
-                  <p className="text-[24px] text-dark/70 mt-4 leading-relaxed line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                )}
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </section>
-    <Footer />
+      <Footer />
     </>
   )
 }
