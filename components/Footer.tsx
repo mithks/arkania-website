@@ -149,10 +149,9 @@ export default function Footer() {
           <p>© 2026 Arkania. All rights reserved.</p>
 
           <div className="flex gap-8">
-            <FooterLink href="#">Privacy Policy</FooterLink>
-            <FooterLink href="#">Terms of Service</FooterLink>
-            <FooterLink href="#">Cookie Policy</FooterLink>
-            <FooterLink href="#">Security</FooterLink>
+            <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
+            <FooterLink href="/terms-of-service">Terms of Service</FooterLink>
+            <FooterLink href="/security">Security</FooterLink>
           </div>
         </div>
 
