@@ -8,7 +8,7 @@ export default function SecurityPage() {
           </h1>
   
           <p className="text-[20px] text-dark/70 mb-12">
-            Last updated: March 2026
+            Last updated: February 2026
           </p>
   
           <div className="space-y-12 text-[20px] text-dark/80 leading-relaxed">
