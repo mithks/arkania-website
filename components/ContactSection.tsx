@@ -65,6 +65,7 @@ import ArkaniaTextReveal from '@/components/ArkaniaTextReveal'
 export default function ContactSection() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -78,7 +79,7 @@ export default function ContactSection() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, phone, message }),
       })
 
       if (!res.ok) throw new Error('Failed')
@@ -176,6 +177,20 @@ export default function ContactSection() {
                 placeholder="Email address"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                className="
+                  w-full rounded-xl px-5 py-4
+                  bg-light/80
+                  border border-dark/10
+                  text-dark placeholder:text-dark/50
+                  focus:outline-none focus:ring-2 focus:ring-primary/40
+                "
+              />
+
+              <input
+                type="tel"
+                placeholder="Phone number (optional)"
+                value={phone}
+                onChange={e => setPhone(e.target.value)}
                 className="
                   w-full rounded-xl px-5 py-4
                   bg-light/80

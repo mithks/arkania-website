@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json()
+    const { name, email, phone, message } = await req.json()
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
@@ -22,12 +22,13 @@ export async function POST(req: Request) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID!,
-      range: 'Sheet1!A:D',
+      range: 'Sheet1!A:E',
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values: [[
           name,
           email,
+          phone || '',
           message,
           new Date().toLocaleString(),
         ]],
