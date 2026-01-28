@@ -95,7 +95,8 @@ export default function ContactSection() {
                 placeholder="Your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full rounded-xl px-5 py-4 bg-light/80 border border-dark/10"
+                className="w-full rounded-xl px-5 py-4 bg-light/80 border border-dark/10 text-dark placeholder:text-dark/50
+                            focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
 
               {/* Email */}
@@ -105,7 +106,8 @@ export default function ContactSection() {
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-xl px-5 py-4 bg-light/80 border border-dark/10"
+                className="w-full rounded-xl px-5 py-4 bg-light/80 border border-dark/10 text-dark placeholder:text-dark/50
+                            focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
 
               {/* Phone (OPTIONAL) */}
@@ -130,7 +132,9 @@ export default function ContactSection() {
                 placeholder="Your message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full rounded-xl px-5 py-4 bg-light/80 border border-dark/10 resize-none"
+                className="w-full rounded-xl px-5 py-4 bg-light/80 border border-dark/10 resize-none
+                text-dark placeholder:text-dark/50 
+                focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
 
               {/* Submit */}
