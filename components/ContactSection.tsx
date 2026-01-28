@@ -86,6 +86,7 @@ export default function ContactSection() {
 
       setName('')
       setEmail('')
+      setPhone('')
       setMessage('')
       setStatus('success')
     } catch {
