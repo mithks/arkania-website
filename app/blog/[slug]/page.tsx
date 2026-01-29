@@ -4,6 +4,7 @@ export const fetchCache = 'force-no-store'
 
 import { sanityClient, urlFor } from '@/lib/sanity'
 import PortableTextRenderer from '@/components/PortableTextRenderer'
+import ReadingProgress from '@/components/ReadingProgress'
 
 export default async function BlogPost({
   params,
@@ -36,6 +37,8 @@ export default async function BlogPost({
   }
 
   return (
+    <>
+    <ReadingProgress />
     <section className="w-full bg-light">
       <article className="max-w-[1500px] mx-auto px-6 md:px-8 py-48 bg-light">
 
@@ -83,5 +86,6 @@ export default async function BlogPost({
 
       </article>
     </section>
+    </>
   )
 }
