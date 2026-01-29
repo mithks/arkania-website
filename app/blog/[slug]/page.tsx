@@ -55,7 +55,7 @@ export default async function BlogPost({
           <img
             src={urlFor(post.mainImage).width(1200).url()}
             alt={post.title}
-            className="rounded-3xl mb-16"
+            className="rounded-3xl mx-auto mb-16"
           />
         )}
 
