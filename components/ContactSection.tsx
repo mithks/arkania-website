@@ -117,7 +117,7 @@ export default function ContactSection() {
               ">
                 <PhoneInput
                   international
-                  defaultCountry="IN"
+                  defaultCountry="US"
                   value={phone}
                   onChange={setPhone}
                   placeholder="Phone number (optional)"
