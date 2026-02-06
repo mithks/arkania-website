@@ -46,7 +46,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="max-w-4xl"
           >
-            <h1 className="text-[64px] font-bold text-secondary leading-tight mt-8">
+            <h1 className="text-[48px] md:text-[64px] font-bold text-secondary leading-tight mt-8">
               Orchestrating Global Flow
             </h1>
           </motion.div>

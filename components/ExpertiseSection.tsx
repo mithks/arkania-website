@@ -64,13 +64,13 @@ export default function ExpertiseSection() {
             />
           </motion.div>
 
-          <h2 className="text-[64px] font-bold text-dark leading-tight">
+          <h2 className="text-[36px] md:text-[64px] font-bold text-dark leading-tight">
             Expertise That Drives Excellence
           </h2>
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 py-10 md:py-0">
           {expertiseCards.map((card, index) => (
             <Link
               key={card.slug}
