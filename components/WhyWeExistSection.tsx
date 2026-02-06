@@ -37,7 +37,7 @@ export default function WhyWeExistSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <p className="text-[64px] font-bold text-light max-w-2xl leading-tight">
+            <p className="text-[36px] md:text-[64px] font-bold text-light max-w-2xl leading-tight">
               We bridge the gap between complex supply chain challenges
               and seamless, smart execution.
             </p>

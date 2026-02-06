@@ -21,34 +21,38 @@ export default function WhoWeAreSection2() {
     setIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1))
 
   return (
-    <section className="relative bg-light py-32 overflow-hidden">
+    <section className="relative bg-light py-24 md:py-32 overflow-hidden">
       <div className="max-w-[1700px] mx-auto px-6 md:px-8">
 
         {/* Slider Area */}
-        <div className="relative flex items-center justify-center mb-32">
+        <div className="relative flex items-center justify-center mb-24 md:mb-32">
 
           {/* Left Arrow */}
-            <button
+          <button
             onClick={prev}
             aria-label="Previous"
             className="
-                absolute left-0 md:left-32 z-30
-                w-12 h-12 flex items-center justify-center
-                hover:scale-110 transition-transform
+              absolute left-2 md:left-32 z-30
+              w-12 h-12 flex items-center justify-center
+              hover:scale-110 transition-transform
             "
-            >
+          >
             <Image
-                src="/assets/left_arrow.svg"
-                alt="Previous"
-                width={32}
-                height={32}
+              src="/assets/left_arrow.svg"
+              alt="Previous"
+              width={32}
+              height={32}
             />
-            </button>
-
+          </button>
 
           {/* Slider */}
-          <div className="relative w-full max-w-[1200px] h-[340px] overflow-hidden">
-
+          <div
+            className="
+              relative w-full max-w-[1200px]
+              overflow-hidden
+              h-auto md:h-[340px]
+            "
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={slides[index].id}
@@ -56,14 +60,30 @@ export default function WhoWeAreSection2() {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -200, opacity: 0 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className="absolute inset-0"
+                className="
+                  relative md:absolute inset-0
+                  flex flex-col md:block
+                  items-center
+                "
               >
-                {/* Dark Card */}
-                <div className="absolute right-20 top-0 h-full w-[75%] rounded-2xl bg-dark shadow-xl z-5" />
 
                 {/* Portrait */}
-                <div className="absolute left-16 top-1/2 -translate-y-1/2 z-10">
-                  <div className="w-[220px] h-[260px] rounded-xl overflow-hidden shadow-lg bg-light">
+                <div
+                  className="
+                    relative md:absolute
+                    md:left-16 md:top-1/2 md:-translate-y-1/2
+                    z-10
+                    mb-6 md:mb-0
+                  "
+                >
+                  <div
+                    className="
+                      w-[180px] h-[220px]
+                      md:w-[220px] md:h-[260px]
+                      rounded-xl overflow-hidden
+                      shadow-lg bg-light
+                    "
+                  >
                     <Image
                       src={slides[index].image}
                       alt="Leader"
@@ -73,32 +93,44 @@ export default function WhoWeAreSection2() {
                     />
                   </div>
                 </div>
+
+                {/* Dark Card */}
+                <div
+                  className="
+                    relative md:absolute
+                    md:right-20 md:top-0
+                    w-full md:w-[75%]
+                    h-[220px] md:h-full
+                    rounded-2xl
+                    bg-dark shadow-xl
+                  "
+                />
+
               </motion.div>
             </AnimatePresence>
           </div>
 
           {/* Right Arrow */}
-            <button
+          <button
             onClick={next}
             aria-label="Next"
             className="
-                absolute right-0 md:right-32 z-30
-                w-12 h-12 flex items-center justify-center
-                hover:scale-110 transition-transform
+              absolute right-2 md:right-32 z-30
+              w-12 h-12 flex items-center justify-center
+              hover:scale-110 transition-transform
             "
-            >
+          >
             <Image
-                src="/assets/right_arrow.svg"
-                alt="Next"
-                width={32}
-                height={32}
+              src="/assets/right_arrow.svg"
+              alt="Next"
+              width={32}
+              height={32}
             />
-            </button>
+          </button>
         </div>
 
         {/* Stats Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
-
           {[
             { value: '20+', label: 'Functional Consultants' },
             { value: '15+', label: 'Technical Consultants' },
@@ -114,13 +146,13 @@ export default function WhoWeAreSection2() {
             >
               <div
                 className="
-                    w-24 h-24 rounded-full
-                    glass
-                    flex items-center justify-center
-                    border border-primary/20
-                    shadow-lg
+                  w-24 h-24 rounded-full
+                  glass
+                  flex items-center justify-center
+                  border border-primary/20
+                  shadow-lg
                 "
-                >
+              >
                 <span className="text-[36px] font-bold text-dark">
                   {item.value}
                 </span>
@@ -130,8 +162,8 @@ export default function WhoWeAreSection2() {
               </p>
             </motion.div>
           ))}
-
         </div>
+
       </div>
     </section>
   )

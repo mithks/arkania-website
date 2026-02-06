@@ -72,11 +72,11 @@ export default function WhatOurClientsSaySection() {
 
         {/* LEFT CONTENT */}
         <div className="max-w-xl">
-          <h2 className="text-[64px] font-bold text-primary leading-tight mb-8">
+          <h2 className="text-[36px] md:text-[64px] px-4 md:px-0 font-bold text-primary leading-tight mb-8">
             Partners in Excellence
           </h2>
 
-          <p className="text-[24px] text-dark leading-relaxed mb-8">
+          <p className="text-[20px] md:text-[24px] px-4 md:px-0 text-dark leading-relaxed mb-8">
             At Arkania, we believe that true success lies in co-creating value.
             We don’t just deliver software; we build enduring partnerships
             grounded in trust and shared innovation.
