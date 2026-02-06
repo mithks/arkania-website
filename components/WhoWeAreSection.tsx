@@ -17,12 +17,12 @@ export default function WhoWeAreSection() {
           muted
           playsInline
           preload="metadata"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-[88%_center] md:object-center object-cover"
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex items-center px-18 md:px-24">
+      <div className="relative z-10 min-h-screen flex items-center px-18 md:px-24 py-90 md:py-0">
         <div className="w-full max-w-[1700px] mx-auto">
 
           <motion.div
@@ -32,11 +32,11 @@ export default function WhoWeAreSection() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="max-w-xl"
           >
-            <h2 className="text-[64px] font-bold text-primary leading-tight mb-6">
+            <h2 className="text-[36px] md:text-[64px] mx-4 md:mx-0 font-bold text-primary leading-tight mb-[400px] md:mb-6">
               Supply Chain at the<br />speed of light.
             </h2>
 
-            <p className="text-[24px] text-dark leading-relaxed">
+            <p className="text-[20px] md:text-[24px] mx-4 md:mx-0 text-dark leading-relaxed">
               We're not just consultants—we're your strategic partners in digital
               transformation, combining deep SAP expertise with cutting-edge AI
               to unlock unprecedented value.
