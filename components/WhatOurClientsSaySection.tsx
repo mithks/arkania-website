@@ -41,7 +41,7 @@ const DESKTOP_CENTER = 260
 
 // Mobile orbit
 const MOBILE_RADIUS = 200
-const MOBILE_CENTER = 150
+const MOBILE_CENTER = 300
 
 const STEP_DURATION = 3500
 
