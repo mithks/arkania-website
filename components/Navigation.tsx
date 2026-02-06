@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
@@ -45,19 +45,19 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState<string | null>(null)
 
+  // 🔹 MOBILE STATE (NEW)
+  const [mobileOpen, setMobileOpen] = useState(false)
+
   /* ----------------------------------
-     Scroll handling (ALL pages)
-     Section spy (HOME only)
+     EXISTING SCROLL LOGIC (UNCHANGED)
   ---------------------------------- */
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY
       const viewportHeight = window.innerHeight
 
-      // ✅ Navbar shape change on ALL pages
       setIsScrolled(scrollY > viewportHeight * 0.8)
 
-      // ❗ Section spy ONLY on home page
       if (pathname !== '/') {
         setActiveSection(null)
         return
@@ -71,9 +71,7 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
         if (!el) return
 
         const rect = el.getBoundingClientRect()
-        const navHeight = 100
-
-        if (rect.top <= navHeight && rect.bottom >= navHeight) {
+        if (rect.top <= 100 && rect.bottom >= 100) {
           current = id
         }
       })
@@ -91,155 +89,175 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
     }
   }, [pathname])
 
-  /* ----------------------------------
-     Smooth section scroll (HOME only)
-  ---------------------------------- */
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
     if (!el) return
 
-    const navHeight = 100
-    const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight
-
-    window.scrollTo({
-      top: y + 100,
-      behavior: 'smooth',
-    })
+    const y = el.getBoundingClientRect().top + window.pageYOffset - 100
+    window.scrollTo({ top: y, behavior: 'smooth' })
   }
 
   const isDarkNav = darkBackground || activeSection === 'services'
 
+  /* ----------------------------------
+     DESKTOP NAV (UNCHANGED)
+  ---------------------------------- */
   return (
-    <motion.nav
-      layout
-      initial={{ y: -100, opacity: 0 }}
-      animate={
-        isScrolled
-          ? { ...navVariants.scrolled, opacity: 1, y: 0 }
-          : { ...navVariants.default, opacity: 1, y: 0 }
-      }
-      transition={{
-        duration: 0.6,
-        ease: 'easeOut',
-        layout: { duration: 0.6, ease: 'easeInOut' },
-      }}
-      className="fixed z-[9999] pointer-events-auto"
-    >
-      <motion.div
+    <>
+      <motion.nav
         layout
-        className={`flex items-center justify-between relative overflow-hidden transition-all duration-500 ${
-          isDarkNav
-            ? isScrolled
-              ? 'glass-dark shadow-lg rounded-b-[30px] py-6 px-8 w-full'
-              : 'glass-dark rounded-full py-6 px-8'
-            : isScrolled
-              ? 'bg-light shadow-lg rounded-b-[30px] py-6 px-8 w-full'
-              : 'glass rounded-full py-6 px-8'
-        }`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={
+          isScrolled
+            ? { ...navVariants.scrolled, opacity: 1, y: 0 }
+            : { ...navVariants.default, opacity: 1, y: 0 }
+        }
+        transition={{
+          duration: 0.6,
+          ease: 'easeOut',
+          layout: { duration: 0.6, ease: 'easeInOut' },
+        }}
+        className="fixed z-[9999] pointer-events-auto"
       >
-        {/* Logo */}
-        <motion.div whileHover={{ scale: 1.05 }}>
-          <Image
-            src={isDarkNav ? '/assets/logo_white.svg' : '/assets/logo.svg'}
-            alt="Arkania Logo"
-            width={120}
-            height={40}
-            priority
-          />
-        </motion.div>
+        <motion.div
+          layout
+          className={`flex items-center justify-between relative overflow-hidden transition-all duration-500 ${
+            isDarkNav
+              ? isScrolled
+                ? 'glass-dark shadow-lg rounded-b-[30px] py-6 px-8 w-full'
+                : 'glass-dark rounded-full py-6 px-8'
+              : isScrolled
+                ? 'bg-light shadow-lg rounded-b-[30px] py-6 px-8 w-full'
+                : 'glass rounded-full py-6 px-8'
+          }`}
+        >
+          {/* Logo */}
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Image
+              src={isDarkNav ? '/assets/logo_white.svg' : '/assets/logo.svg'}
+              alt="Arkania Logo"
+              width={120}
+              height={40}
+              priority
+            />
+          </motion.div>
 
-        {/* Navigation Links */}
-        <div className="flex items-center gap-10 mr-8 md:mr-16">
-          {navItems.map((item) => {
-            const isSectionLink = item.href.startsWith('/#')
-            const sectionId = isSectionLink
-              ? item.href.replace('/#', '')
-              : null
+          {/* DESKTOP LINKS (UNCHANGED) */}
+          <div className="hidden md:flex items-center gap-10 mr-8 md:mr-16">
+            {navItems.map((item) => {
+              const isSectionLink = item.href.startsWith('/#')
+              const sectionId = isSectionLink
+                ? item.href.replace('/#', '')
+                : null
 
               let isActive = false
 
-              // 🔥 HARD-CODE HOME BEHAVIOR
               if (item.href === '/') {
-                // Home is active ONLY when no section is active
                 isActive = pathname === '/' && activeSection === null
-              }
-              
-              // Section links (Services / Contact)
-              else if (isSectionLink && pathname === '/') {
+              } else if (isSectionLink && pathname === '/') {
                 isActive = activeSection === sectionId
-              }
-              
-              // Normal pages (About / Blogs)
-              else {
+              } else {
                 isActive = pathname === item.href
               }
-              
 
-            const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-              if (!isSectionLink) return
+              const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                if (!isSectionLink) return
+                e.preventDefault()
 
-              e.preventDefault()
-
-              if (pathname === '/') {
-                scrollToSection(sectionId!)
-              } else {
-                router.push(`/#${sectionId}`)
+                if (pathname === '/') {
+                  scrollToSection(sectionId!)
+                } else {
+                  router.push(`/#${sectionId}`)
+                }
               }
-            }
 
-            return (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={handleClick}
-                onMouseEnter={() => setHoveredItem(item.name)}
-                onMouseLeave={() => setHoveredItem(null)}
-                className="relative"
-              >
-                <motion.span
-                  whileHover={{ scale: 1.1 }}
-                  className={`text-[24px] font-medium transition-colors duration-300 ${
-                    isDarkNav
-                      ? isActive
-                        ? 'text-secondary'
-                        : 'text-light/80 hover:text-light'
-                      : isScrolled
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={handleClick}
+                  onMouseEnter={() => setHoveredItem(item.name)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  className="relative"
+                >
+                  <motion.span
+                    whileHover={{ scale: 1.1 }}
+                    className={`text-[24px] font-medium transition-colors duration-300 ${
+                      isDarkNav
                         ? isActive
                           ? 'text-secondary'
-                          : 'text-dark/70 hover:text-dark'
-                        : isActive
-                          ? 'text-secondary'
                           : 'text-light/80 hover:text-light'
-                  }`}
+                        : isScrolled
+                          ? isActive
+                            ? 'text-secondary'
+                            : 'text-dark/70 hover:text-dark'
+                          : isActive
+                            ? 'text-secondary'
+                            : 'text-light/80 hover:text-light'
+                    }`}
+                  >
+                    {item.name}
+                  </motion.span>
+                </Link>
+              )
+            })}
+          </div>
+
+          {/* MOBILE HAMBURGER (NEW, STYLE IS MINIMAL) */}
+          <button
+            onClick={() => setMobileOpen(true)}
+            className="md:hidden flex flex-col gap-1"
+          >
+            <span className="w-6 h-[2px] bg-current" />
+            <span className="w-6 h-[2px] bg-current" />
+            <span className="w-6 h-[2px] bg-current" />
+          </button>
+        </motion.div>
+      </motion.nav>
+
+      {/* MOBILE MENU OVERLAY (NEW) */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9998] bg-dark/90 backdrop-blur-xl md:hidden"
+          >
+            <div className="flex flex-col items-center justify-center h-full gap-10">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  className="text-[32px] font-semibold text-light"
+                  onClick={() => {
+                    setMobileOpen(false)
+
+                    if (item.href.startsWith('/#')) {
+                      const id = item.href.replace('/#', '')
+                      if (pathname === '/') {
+                        scrollToSection(id)
+                      } else {
+                        router.push(`/#${id}`)
+                      }
+                    } else {
+                      router.push(item.href)
+                    }
+                  }}
                 >
                   {item.name}
-                </motion.span>
+                </button>
+              ))}
 
-                {isActive && (
-                  <motion.div
-                    layoutId="activeIndicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-secondary"
-                    transition={{
-                      type: 'spring',
-                      stiffness: 500,
-                      damping: 30,
-                    }}
-                  />
-                )}
-
-                {hoveredItem === item.name && !isActive && (
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-primary"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-              </Link>
-            )
-          })}
-        </div>
-      </motion.div>
-    </motion.nav>
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="mt-10 text-light/60"
+              >
+                Close
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }

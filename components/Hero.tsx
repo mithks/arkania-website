@@ -77,7 +77,7 @@ export default function Hero() {
           {/* Headline */}
           <motion.div variants={itemVariants} className="space-y-4">
             <motion.h1
-              className="text-[64px] font-bold text-light leading-tight"
+              className="text-[36px] md:text-[64px] font-bold text-light leading-tight"
             >
               <motion.span
                 className="block"
@@ -109,7 +109,7 @@ export default function Hero() {
           </motion.div>
 
           {/* CTA */}
-          <motion.div variants={itemVariants} className="flex justify-end">
+          <motion.div variants={itemVariants} className="flex justify-start md:justify-end">
             <motion.button
               onClick={handleScheduleClick}
               onMouseEnter={() => setIsHovered(true)}
@@ -117,8 +117,9 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="
-                glass-dark rounded-full my-8 px-8 py-4
-                text-light font-medium text-[24px]
+                glass-dark rounded-full my-6 md:my-8 
+                px-6 py-3 md:px-8 md:py-4
+                text-light font-medium text-[20px] md:text-[24px]
                 relative overflow-hidden group
               "
             >

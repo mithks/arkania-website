@@ -27,7 +27,7 @@ export default function IntroSection() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="max-w-8xl"
         >
-          <p className="text-[48px] md:text-[64px] font-bold text-dark leading-tight">
+          <p className="text-[36px] md:text-[64px] font-bold text-dark leading-tight">
             Arkania solves your toughest logistics challenges with intelligent, precision-engineered SAP solutions that transform complexity into seamless performance.
           </p>
         </motion.div>
