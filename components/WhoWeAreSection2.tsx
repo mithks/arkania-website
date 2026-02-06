@@ -32,7 +32,7 @@ export default function WhoWeAreSection2() {
             onClick={prev}
             aria-label="Previous"
             className="
-              absolute left-2 md:left-32 z-30
+              absolute left-2 md:left-32 top-20 md:top-40 z-30
               w-12 h-12 flex items-center justify-center
               hover:scale-110 transition-transform
             "
@@ -115,7 +115,7 @@ export default function WhoWeAreSection2() {
             onClick={next}
             aria-label="Next"
             className="
-              absolute right-2 md:right-32 z-30
+              absolute right-2 md:right-32 top-20 md:top-40 z-30
               w-12 h-12 flex items-center justify-center
               hover:scale-110 transition-transform
             "
