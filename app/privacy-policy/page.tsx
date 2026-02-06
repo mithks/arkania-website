@@ -36,6 +36,7 @@ export default function PrivacyPolicyPage() {
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>Name</li>
                 <li>Email address</li>
+                <li>Phone number</li>
                 <li>Message content</li>
               </ul>
             </div>
