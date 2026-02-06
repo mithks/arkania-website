@@ -49,7 +49,7 @@ export default async function BlogPost({
         </p>
 
         {/* Title */}
-        <h1 className="text-[64px] font-bold text-dark leading-tight mb-12">
+        <h1 className="text-[36px] md:text-[64px] font-bold text-dark leading-tight mb-12">
           {post.title}
         </h1>
 
