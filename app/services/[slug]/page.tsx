@@ -68,11 +68,11 @@ export default function ServiceDetailPage({
           {/* RIGHT – CONTENT */}
           <div className="flex items-center px-12 lg:px-20">
             <div className="max-w-xl">
-              <h1 className="text-[64px] font-bold text-secondary mb-6">
+              <h1 className="text-[36px] md:text-[64px] font-bold text-secondary mb-6 mt-8 md:mt-0">
                 {service.title}
               </h1>
 
-              <p className="text-[24px] text-dark leading-relaxed">
+              <p className="text-[16px] md:text-[24px] text-dark leading-relaxed mb-8 md:mb-0">
                 {service.description}
               </p>
             </div>
