@@ -87,11 +87,11 @@ export default function WhatOurClientsSaySection() {
           </p>
 
           {/* TESTIMONIAL BOX */}
-          <div className="relative max-w-md md:max-w-md px-6 md:px-0">
+          <div className="relative max-w-md md:max-w-md px-12 md:px-0">
 
             <button
               onClick={prevTestimonial}
-              className="absolute -left-3 md:-left-12 top-1/2 -translate-y-1/2 z-20"
+              className="absolute -left-0 md:-left-12 top-1/2 -translate-y-1/2 z-20"
             >
               <Image
                 src="/assets/left_arrow.svg"
@@ -103,7 +103,7 @@ export default function WhatOurClientsSaySection() {
 
             <button
               onClick={nextTestimonial}
-              className="absolute -right-3 md:-right-12 top-1/2 -translate-y-1/2 z-20"
+              className="absolute -right-0 md:-right-12 top-1/2 -translate-y-1/2 z-20"
             >
               <Image
                 src="/assets/right_arrow.svg"
@@ -130,7 +130,7 @@ export default function WhatOurClientsSaySection() {
                   className="mb-4"
                 />
 
-                <p className="text-[20px] text-dark leading-relaxed mb-6">
+                <p className="text-[16px] md:text-[20px] text-dark leading-relaxed mb-6">
                   {testimonials[testimonialIndex].text}
                 </p>
 
@@ -177,7 +177,7 @@ export default function WhatOurClientsSaySection() {
       </div>
 
       {/* MOBILE LOGO ORBIT (BOTTOM) */}
-      <div className="relative mt-24 flex justify-center lg:hidden">
+      <div className="relative mt-0 flex justify-center lg:hidden">
         <div className="relative w-[300px] h-[300px]">
           {logos.map((logo, i) => {
             const angle =
