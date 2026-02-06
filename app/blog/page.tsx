@@ -32,7 +32,7 @@ export default async function BlogPage() {
       <Navigation darkBackground />
 
       <section className="max-w-[1700px] mx-auto px-6 md:px-8 py-36 bg-light">
-        <h1 className="text-[64px] mx-12 font-bold text-dark mb-10">
+        <h1 className="text-[36px] md:text-[64px] mx-12 font-bold text-dark mb-10">
           Insights and Expertise
         </h1>
 
