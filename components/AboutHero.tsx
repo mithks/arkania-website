@@ -62,7 +62,7 @@ export default function AboutHero() {
         <div className="
           glass-dark rounded-full
           px-12 md:px-32 py-3 md:py-4
-          text-[24px] md:text-[36px]
+          text-[20px] md:text-[36px]
           font-semibold text-light
           backdrop-blur-xl
         ">
