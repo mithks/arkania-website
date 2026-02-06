@@ -48,7 +48,7 @@ export default function ExpertiseSection() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="flex flex-col gap-4"
         >
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -62,7 +62,7 @@ export default function ExpertiseSection() {
               height={80}
               className="w-full h-full object-contain"
             />
-          </motion.div>
+          </motion.div> */}
 
           <h2 className="text-[36px] md:text-[64px] font-bold text-dark leading-tight">
             Expertise That Drives Excellence
