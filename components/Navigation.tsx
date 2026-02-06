@@ -208,9 +208,15 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
             onClick={() => setMobileOpen(true)}
             className="md:hidden flex flex-col gap-1"
           >
-            <span className="w-6 h-[2px] bg-current" />
-            <span className="w-6 h-[2px] bg-current" />
-            <span className="w-6 h-[2px] bg-current" />
+            <span className={`w-6 h-[3px] transition-colors duration-300 ${
+              isDarkNav ? 'bg-light' : 'bg-primary'
+            }`} />
+            <span className={`w-6 h-[3px] transition-colors duration-300 ${
+              isDarkNav ? 'bg-light' : 'bg-primary'
+            }`} />
+            <span className={`w-6 h-[3px] transition-colors duration-300 ${
+              isDarkNav ? 'bg-light' : 'bg-primary'
+            }`} />
           </button>
         </motion.div>
       </motion.nav>

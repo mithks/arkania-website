@@ -63,7 +63,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl flex flex-col gap-8"
           >
-            <h2 className="text-[56px] md:text-[80px] font-bold text-dark">
+            <h2 className="text-[48px] md:text-[80px] font-bold text-dark">
               Let’s Connect.
             </h2>
 
