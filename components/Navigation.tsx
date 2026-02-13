@@ -94,7 +94,7 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
     if (!el) return
 
     const y = el.getBoundingClientRect().top + window.pageYOffset - 100
-    window.scrollTo({ top: y, behavior: 'smooth' })
+    window.scrollTo({ top: y + 100, behavior: 'smooth' })
   }
 
   const isDarkNav = darkBackground || activeSection === 'services'
