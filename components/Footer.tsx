@@ -98,12 +98,12 @@ export default function Footer() {
             {/* Social Icons */}
             <div className="flex items-center gap-4 pt-4">
               <SocialIcon
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/company/arkania-solutions"
                 src="/assets/linkedin.svg"
                 alt="LinkedIn"
               />
               <SocialIcon
-                href="https://twitter.com"
+                href=""
                 src="/assets/twitter.svg"
                 alt="Twitter"
               />
