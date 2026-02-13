@@ -19,17 +19,17 @@ const logos = [
 
 const testimonials = [
   {
-    author: 'Client 1',
+    author: 'Our Client',
     text:
       'They engineered a solution that perfectly fit our unique workflows. The delivery quality and attention to detail were exceptional.',
   },
   {
-    author: 'Client 2',
+    author: 'Our Client',
     text:
       'Arkania helped us scale globally with confidence. Their SAP expertise is world-class.',
   },
   {
-    author: 'Client 3',
+    author: 'Our Client',
     text:
       'A true partner in innovation. Reliable, responsive, and deeply technical.',
   },
