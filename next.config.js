@@ -4,32 +4,32 @@ const nextConfig = {
   return [
   {
   source: '/about',
-  destination: '/',
+  destination: '/about',
   permanent: true,
   },
   {
   source: '/blog',
-  destination: '/',
+  destination: '/blog',
   permanent: true,
   },
   {
   source: '/services/ewm',
-  destination: '/',
+  destination: '/services/ewm',
   permanent: true,
   },
   {
   source: '/services/tm',
-  destination: '/',
+  destination: '/services/tm',
   permanent: true,
   },
   {
   source: '/services/custom',
-  destination: '/',
+  destination: '/services/custom',
   permanent: true,
   },
   {
   source: '/services/ai',
-  destination: '/',
+  destination: '/services/ai',
   permanent: true,
   }
   ]
