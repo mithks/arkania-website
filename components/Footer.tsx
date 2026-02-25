@@ -111,7 +111,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               />
               <SocialIcon
-                href=""
+                href="https://x.com/"
                 src="/assets/twitter.svg"
                 alt="Twitter"
                 target="_blank"
