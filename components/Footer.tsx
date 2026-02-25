@@ -48,10 +48,14 @@ function SocialIcon({
   href,
   src,
   alt,
+  target,
+  rel,
 }: {
   href: string
   src: string
   alt: string
+  target?: string
+  rel?: string
 }) {
   return (
     <Link
@@ -61,6 +65,8 @@ function SocialIcon({
         bg-light/10 hover:bg-secondary/80
         transition-all duration-300 hover:scale-110
       "
+      target={target}
+      rel={rel}
     >
       <Image src={src} alt={alt} width={18} height={18} />
     </Link>
@@ -101,11 +107,15 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/arkania-solutions"
                 src="/assets/linkedin.svg"
                 alt="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
               />
               <SocialIcon
                 href=""
                 src="/assets/twitter.svg"
                 alt="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
               />
               <SocialIcon
                 href="/#contact"
