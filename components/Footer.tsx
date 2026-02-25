@@ -108,7 +108,7 @@ export default function Footer() {
                 alt="Twitter"
               />
               <SocialIcon
-                href="#contact"
+                href="/#contact"
                 src="/assets/email.svg"
                 alt="Email"
               />
@@ -136,7 +136,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-4 text-[20px] text-light/80">
               <li><FooterLink href="/about">About Us</FooterLink></li>
               <li><FooterLink href="/about/#why-we-exist">Why Choose Us</FooterLink></li>
-              <li><FooterLink href="#contact">Contact</FooterLink></li>
+              <li><FooterLink href="/#contact">Contact</FooterLink></li>
             </ul>
           </div>
         </motion.div>
