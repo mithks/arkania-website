@@ -17,19 +17,9 @@ const navItems = [
 const navVariants = {
   default: {
     top: 12,
-    left: '50%',
-    right: 'auto',
-    width: '100%',
-    maxWidth: 1500,
-    x: '-50%',
   },
   scrolled: {
     top: 0,
-    left: 0,
-    right: 0,
-    width: '100%',
-    maxWidth: 'none',
-    x: 0,
   },
 }
 
@@ -117,18 +107,18 @@ export default function Navigation({ darkBackground = false }: NavigationProps) 
           ease: 'easeOut',
           layout: { duration: 0.6, ease: 'easeInOut' },
         }}
-        className="fixed z-[9999] pointer-events-auto"
+        className="fixed inset-x-0 z-[9999] pointer-events-auto flex justify-center"
       >
         <motion.div
           layout
-          className={`flex items-center justify-between relative overflow-hidden transition-all duration-500 ${
+          className={`flex items-center justify-between relative overflow-hidden transition-all duration-500 w-full max-w-[1500px] px-4 ${
             isDarkNav
               ? isScrolled
-                ? 'glass-dark shadow-lg rounded-b-[30px] py-6 px-8 w-full'
-                : 'glass-dark rounded-full py-6 px-8'
+                ? 'glass-dark shadow-lg rounded-b-[30px] py-6'
+                : 'glass-dark rounded-full py-6'
               : isScrolled
-                ? 'bg-light shadow-lg rounded-b-[30px] py-6 px-8 w-full'
-                : 'glass rounded-full py-6 px-8'
+                ? 'bg-light shadow-lg rounded-b-[30px] py-6'
+                : 'glass rounded-full py-6'
           }`}
         >
           {/* Logo */}
