@@ -129,7 +129,7 @@ export default function ServiceDetailPage({
 
       <main className="bg-light">
         {/* HERO SECTION */}
-        <section className="min-h-[85vh] grid grid-cols-1 lg:grid-cols-2">
+        <section className="min-h-[100vh] grid grid-cols-1 lg:grid-cols-2">
           
           {/* LEFT – IMAGE */}
           <div className="relative h-[60vh] lg:h-auto">
