@@ -48,7 +48,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative min-h-screen bg-light px-6 md:px-8 py-48 md:py-64 overflow-hidden"
+      className="relative min-h-screen bg-light px-6 md:px-8 py-36 md:py-48 overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(168,85,247,0.12),transparent_60%)]" />
 
