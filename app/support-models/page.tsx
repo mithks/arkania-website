@@ -15,7 +15,7 @@ export default function SupportModelsPage() {
         <section className="relative h-screen overflow-hidden">
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             {/* Anchor globe so its bottom sits at the bottom of the viewport */}
-              <div className="absolute -right-32 bottom-0 w-[900px] h-[740px] opacity-90">
+            <div className="absolute -right-32 bottom-0 w-[900px] h-[740px] opacity-90">
               <GlobeDots
                 enabled
                 src="/assets/globe_circle.svg"
@@ -57,23 +57,23 @@ export default function SupportModelsPage() {
             </div>
           </div>
 
-          <div className="absolute left-4 md:left-6 lg:left-36 bottom-0 flex gap-10 z-10">
-            <div className="w-[96px] h-[134px] bg-primary rounded-t-[36px] flex items-center justify-center">
+          <div className="absolute left-8 md:left-12 lg:left-[395px] bottom-0 flex gap-[116px] z-10">
+            <div className="w-[116px] h-[134px] bg-primary rounded-t-[100px] flex items-center justify-center">
               <span className="text-white font-bold text-[38px]">01</span>
             </div>
-            <div className="w-[96px] h-[134px] bg-primary rounded-t-[36px] flex items-center justify-center">
+            <div className="w-[116px] h-[134px] bg-primary rounded-t-[100px] flex items-center justify-center">
               <span className="text-white font-bold text-[38px]">02</span>
             </div>
           </div>
         </section>
 
-        {/* Models */}
+        {/* Models Section */}
         <section
           id="models-grid"
-          className="relative pt-0 pb-24 md:pb-32 bg-light"
+          className="relative pt-0 pb-32 md:pb-48 bg-light"
         >
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute -right-32 top-0 w-[900px] h-[740px] opacity-90">
+            <div className="absolute -right-[185px] -top-[38px] w-[900px] h-[740px] opacity-90 z-0">
               <GlobeDots
                 enabled
                 src="/assets/globe_circle2.svg"
@@ -82,93 +82,66 @@ export default function SupportModelsPage() {
             </div>
           </div>
 
-          <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-8">
-            <div className="grid lg:grid-cols-2 gap-10 items-stretch">
-              {/* Left (Hybrid On-site) */}
-              <div className="relative rounded-[24px] overflow-hidden bg-white/70 border border-primary/10 backdrop-blur-md">
-                <div className="absolute inset-0 bg-gradient-to-b from-secondary/10 via-secondary/5 to-white/0" />
-                <div className="absolute left-0 top-0 bottom-0 w-[14px] bg-secondary/55" />
+          <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-8 flex flex-col md:flex-row gap-12 md:gap-24">
+            
+            {/* Left Column: Scaled Images (Pillars included in image files) */}
+            <div className="hidden md:block relative w-[350px] lg:w-[400px] flex-shrink-0 h-[800px]">
+              
+              {/* Image 1: Dedicated Off-shore (Long Pillar + Laptop) */}
+              <div className="absolute right-80 top-0 w-[260px] h-[800px] z-20">
+                <Image
+                  src="/assets/laptop.png"
+                  alt="Laptop and pillar illustration"
+                  fill
+                  className="object-contain object-top drop-shadow-xl"
+                  priority
+                />
+              </div>
 
-                <div className="relative h-full p-8 md:p-10 flex flex-col">
-                  <div className="flex items-start justify-between gap-6">
-                    <div className="max-w-[320px]">
-                      <h2 className="text-[36px] md:text-[44px] font-bold text-primary leading-tight">
-                        Hybrid On-site
-                      </h2>
-                      <p className="text-[16px] md:text-[18px] text-dark/70 leading-relaxed mt-6">
-                        The best of both worlds: direct, face-to-face
-                        alignment with your business users during core
-                        phases, backed by a structured engagement model.
-                      </p>
-                    </div>
-                  </div>
+              {/* Image 2: Hybrid On-site (Short Pillar + ID Tag) */}
+              <div className="absolute left-[60px] lg:left-[70px] top-0 w-[211px] h-[550px] z-20">
+                <Image
+                  src="/assets/idtag.png"
+                  alt="ID tag and pillar illustration"
+                  fill
+                  className="object-contain object-top drop-shadow-xl"
+                />
+              </div>
+            </div>
 
-                  <div className="mt-10 relative flex-1 min-h-[240px]">
-                    <div className="absolute -left-2 top-0 w-[420px] h-[280px] opacity-95">
-                      <Image
-                        src="/assets/laptop.png"
-                        alt="Hybrid On-site laptop illustration"
-                        fill
-                        className="object-contain"
-                        priority
-                      />
-                    </div>
-                    <div className="absolute left-32 top-0 w-[110px] h-[70px]">
-                      <Image
-                        src="/assets/idtag.png"
-                        alt="On-site identification tag"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap gap-3 text-[12px] md:text-[13px] font-semibold text-secondary">
-                    <span className="px-3 py-2 rounded-full bg-secondary/10 border border-secondary/20">
-                      BUSINESS ALIGNMENT
-                    </span>
-                    <span className="px-3 py-2 rounded-full bg-secondary/10 border border-secondary/20">
-                      CRITICAL PRIORITY
-                    </span>
-                  </div>
+            {/* Right Column: Content Blocks */}
+            <div className="flex-1 flex flex-col relative md:pt-[150px] z-20">
+              
+              {/* Hybrid On-site Block (Pushed slightly left to hug the short pillar) */}
+              <div className="mb-24 md:mb-[160px] md:-ml-[80px] lg:-ml-[120px] transition-all">
+                <h2 className="text-[40px] md:text-[52px] font-bold text-[#1a1a2e] tracking-tight leading-tight mb-5">
+                  Hybrid On-site
+                </h2>
+                <p className="text-[18px] md:text-[22px] font-medium text-dark/90 leading-relaxed max-w-[620px] mb-6">
+                  The best of both worlds. Direct, face-to-face alignment with your business users during core local hours, seamlessly bridged to our global teams for overnight resolution.
+                </p>
+                <div className="flex items-center gap-3 text-[13px] md:text-[14px] font-bold text-[#5c1c81] uppercase tracking-wide">
+                  <span>BUSINESS ALIGNMENT</span>
+                  <span className="text-[#B24BF3]">|</span>
+                  <span>CRITICAL PRIORITY</span>
                 </div>
               </div>
 
-              {/* Right (Dedicated Off-shore) */}
-              <div className="relative rounded-[24px] overflow-hidden bg-dark text-light border border-primary/10">
-                <div className="absolute inset-0 bg-gradient-to-b from-secondary/15 via-secondary/5 to-transparent" />
-                <div className="relative h-full p-8 md:p-10 flex flex-col justify-between">
-                  <div>
-                    <h2 className="text-[36px] md:text-[44px] font-bold text-secondary leading-tight">
-                      Dedicated Off-shore
-                    </h2>
-                    <p className="text-[16px] md:text-[18px] text-light/80 leading-relaxed mt-6">
-                      Uninterrupted, 24/7 global execution. Maximize
-                      system uptime with continuous coverage across the
-                      integrated shifts, managed entirely from our global
-                      delivery centers.
-                    </p>
-                  </div>
-
-                  <div className="mt-10 flex flex-wrap gap-3 text-[12px] md:text-[13px] font-semibold text-secondary">
-                    <span className="px-3 py-2 rounded-full bg-secondary/10 border border-secondary/20">
-                      CONTINUOUS EXECUTION
-                    </span>
-                    <span className="px-3 py-2 rounded-full bg-secondary/10 border border-secondary/20">
-                      GLOBAL SCALE
-                    </span>
-                  </div>
-
-                  <div className="mt-12">
-                    <Link
-                      href="/#contact"
-                      className="inline-flex items-center justify-center w-full rounded-full bg-secondary text-white px-8 py-4 font-semibold text-lg hover:bg-opacity-90 transition-all duration-300"
-                    >
-                      Talk to an SAP Expert
-                    </Link>
-                  </div>
+              {/* Dedicated Off-shore Block (Pushed further left to step under the short pillar and hug the long pillar) */}
+              <div className="md:-ml-[200px] lg:-ml-[320px] transition-all">
+                <h2 className="text-[40px] md:text-[52px] font-bold text-[#1a1a2e] tracking-tight leading-tight mb-5">
+                  Dedicated Off-shore
+                </h2>
+                <p className="text-[18px] md:text-[22px] font-medium text-dark/90 leading-relaxed max-w-[620px] mb-6">
+                  Uninterrupted, 24/7 global execution. Maximize your system uptime with continuous coverage across three integrated shifts, managed entirely from our delivery centers.
+                </p>
+                <div className="flex items-center gap-3 text-[13px] md:text-[14px] font-bold text-[#5c1c81] uppercase tracking-wide">
+                  <span>CONTINUOUS EXECUTION</span>
+                  <span className="text-[#B24BF3]">|</span>
+                  <span>GLOBAL SCALE</span>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
@@ -178,4 +151,3 @@ export default function SupportModelsPage() {
     </>
   )
 }
-
