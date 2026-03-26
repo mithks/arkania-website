@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 const servicesCards = [
   {
@@ -22,6 +23,7 @@ const servicesCards = [
     title: 'Support & Maintenance',
     description:
       'Dedicated post-go-live support to ensure maximum system uptime, stability, and continuous improvement.',
+    href: '/support-models',
   },
 ]
 
@@ -54,32 +56,47 @@ export default function ServicesSection() {
           {/* Services Cards Grid */}
           <div className="grid grid-cols-1 -mt-4 md:grid-cols-2 gap-6 md:gap-8">
             {servicesCards.map((card, index) => (
-              <motion.div
-                key={card.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{
-                  duration: 0.8,
-                  ease: 'easeOut',
-                  delay: index * 0.1,
-                }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="
-                  relative rounded-lg p-6 md:p-8 cursor-pointer
-                  bg-dark/60 backdrop-blur-md
-                  border border-primary/30
-                  hover:border-secondary
-                  transition-all duration-300
-                "
-              >
-                <h3 className="text-[36px] font-bold text-primary mb-4">
-                  {card.title}
-                </h3>
-                <p className="text-light text-[24px] leading-relaxed">
-                  {card.description}
-                </p>
-              </motion.div>
+              (() => {
+                const isNavigable = Boolean((card as { href?: string }).href)
+
+                const cardUi = (
+                  <motion.div
+                    key={card.title}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{
+                      duration: 0.8,
+                      ease: 'easeOut',
+                      delay: index * 0.1,
+                    }}
+                    whileHover={isNavigable ? { scale: 1.02, y: -5 } : undefined}
+                    className={`
+                      relative rounded-lg p-6 md:p-8
+                      ${isNavigable ? 'cursor-pointer' : 'cursor-default'}
+                      bg-dark/60 backdrop-blur-md
+                      border border-primary/30
+                      ${isNavigable ? 'hover:border-secondary' : 'hover:border-primary/30'}
+                      transition-all duration-300
+                    `}
+                  >
+                    <h3 className="text-[36px] font-bold text-primary mb-4">
+                      {card.title}
+                    </h3>
+                    <p className="text-light text-[24px] leading-relaxed">
+                      {card.description}
+                    </p>
+                  </motion.div>
+                )
+
+                if (!isNavigable) return cardUi
+
+                return (
+                  <Link key={card.title} href={(card as { href: string }).href} className="block">
+                    {cardUi}
+                  </Link>
+                )
+              })()
             ))}
           </div>
 
