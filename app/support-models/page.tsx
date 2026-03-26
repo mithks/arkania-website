@@ -24,7 +24,7 @@ export default function SupportModelsPage() {
             </div>
           </div>
 
-          <div className="relative z-10 max-w-[1700px] mx-auto px-6 md:px-8 pt-[200px]">
+          <div className="relative z-10 max-w-[1700px] mx-auto px-18 md:px-24 pt-[200px]">
             <div className="max-w-[720px]">
               <p className="text-[44px] md:text-[56px] font-bold text-dark leading-tight">
                 Support Models:
@@ -57,7 +57,7 @@ export default function SupportModelsPage() {
             </div>
           </div>
 
-          <div className="absolute left-8 md:left-12 lg:left-[395px] bottom-0 flex gap-[116px] z-10">
+          <div className="absolute left-8 md:left-12 lg:right-80 bottom-0 flex gap-[116px] z-10">
             <div className="w-[116px] h-[134px] bg-primary rounded-t-[100px] flex items-center justify-center">
               <span className="text-white font-bold text-[38px]">01</span>
             </div>
