@@ -57,7 +57,7 @@ export default function SupportModelsPage() {
             </div>
           </div>
 
-          <div className="absolute left-8 md:left-12 lg:right-60 bottom-0 flex gap-[116px] z-10">
+          <div className="absolute left-8 md:left-12 lg:right-40 bottom-0 flex gap-[116px] z-10">
             <div className="w-[116px] h-[134px] bg-primary rounded-t-[100px] flex items-center justify-center">
               <span className="text-white font-bold text-[38px]">01</span>
             </div>
