@@ -15,7 +15,7 @@ export default function SupportModelsPage() {
           {/* Single globe spanning the whole page */}
           {/* Positioned to mirror the previous "hero globe" + "models globe" stacking */}
           <div
-            className="absolute right-[-185px] top-0 bottom-0 w-[900px] pointer-events-none z-0 -translate-y-[120px]"
+            className="absolute right-[-190px] top-0 bottom-0 w-[900px] pointer-events-none z-0 -translate-y-[200px]"
           >
             <GlobeDots enabled src="/assets/globe_circle.svg" className="w-full h-full" />
           </div>
