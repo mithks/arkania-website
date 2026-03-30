@@ -11,7 +11,7 @@ export default function SupportModelsPage() {
       <Navigation darkBackground />
 
       <main className="relative bg-light text-dark overflow-visible">
-        <section className="relative min-h-[2100px]">
+        <section className="relative min-h-[2000px]">
           {/* Single globe spanning the whole page */}
           {/* Positioned to mirror the previous "hero globe" + "models globe" stacking */}
           <div
