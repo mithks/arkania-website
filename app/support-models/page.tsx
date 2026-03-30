@@ -11,11 +11,11 @@ export default function SupportModelsPage() {
       <Navigation darkBackground />
 
       <main className="relative bg-light text-dark overflow-visible">
-        <section className="relative min-h-[2600px]">
+        <section className="relative min-h-[2100px]">
           {/* Single globe spanning the whole page */}
           {/* Positioned to mirror the previous "hero globe" + "models globe" stacking */}
           <div
-            className="absolute right-[-185px] top-0 bottom-0 w-[900px] pointer-events-none z-0"
+            className="absolute right-[-185px] top-0 bottom-0 w-[900px] pointer-events-none z-0 -translate-y-[380px]"
           >
             <GlobeDots enabled src="/assets/globe_circle.svg" className="w-full h-full" />
           </div>
@@ -65,7 +65,7 @@ export default function SupportModelsPage() {
               {/* Left Column: Scaled Images (Pillars included in image files) */}
               <div className="hidden md:block relative w-[350px] lg:w-[400px] flex-shrink-0 h-[800px]">
                 {/* Image 1: Dedicated Off-shore (Long Pillar + Laptop) */}
-                <div className="absolute right-80 top-0 w-[290px] h-[850px] z-20">
+                <div className="absolute right-80 top-[-140px] w-[290px] h-[850px] z-20">
                   <Image
                     src="/assets/laptop.png"
                     alt="Laptop and pillar illustration"
@@ -76,7 +76,7 @@ export default function SupportModelsPage() {
                 </div>
 
                 {/* Image 2: Hybrid On-site (Short Pillar + ID Tag) */}
-                <div className="absolute left-[60px] lg:left-[70px] top-0 w-[230px] h-[600px] z-20">
+                <div className="absolute left-[60px] lg:left-[70px] top-[-140px] w-[230px] h-[600px] z-20">
                   <Image
                     src="/assets/idtag.png"
                     alt="ID tag and pillar illustration"
@@ -87,9 +87,9 @@ export default function SupportModelsPage() {
               </div>
 
               {/* Right Column: Content Blocks */}
-              <div className="flex-1 flex flex-col relative md:pt-[150px] z-20">
+              <div className="flex-1 flex flex-col relative md:pt-[120px] z-20">
                 {/* Hybrid On-site Block (Pushed slightly left to hug the short pillar) */}
-                <div className="mb-24 md:mb-[160px] md:-ml-[80px] lg:-ml-[120px] transition-all">
+                <div className="mb-30 md:mb-[180px] md:-ml-[80px] lg:-ml-[120px] transition-all">
                   <h2 className="text-[40px] md:text-[52px] font-bold text-[#1a1a2e] tracking-tight leading-tight mb-5">
                     Hybrid On-site
                   </h2>
