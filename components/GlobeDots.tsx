@@ -67,8 +67,14 @@ export function GlobeDots({
           const norm = (cx / vbWidth + cy / vbHeight) / 2
           const delayMs = norm * cycleMs + (index % 7) * 25
 
+          const isSecondHalf = cy >= vbHeight / 2
           p.style.animationDuration = `${cycleMs}ms`
           p.style.animationDelay = `${-delayMs}ms`
+          // Use a dimmer pulse for the lower half of the SVG.
+          // (CSS sets `globeDotPulse` by default; we override only when needed.)
+          p.style.animationName = isSecondHalf
+            ? 'globeDotPulseDim'
+            : 'globeDotPulse'
         } catch {
           // Ignore any paths that can't compute bbox.
         }
