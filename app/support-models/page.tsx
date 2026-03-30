@@ -120,6 +120,27 @@ export default function SupportModelsPage() {
               </div>
             </div>
           </div>
+
+          {/* CTA - Above Footer */}
+          <div className="relative z-10 bg-primary w-full mt-10">
+            <div className="max-w-[1700px] mx-auto px-6 md:px-8 py-16 md:py-24">
+              <div className="max-w-[900px]">
+                <p className="text-light/80 text-[14px] md:text-[16px] uppercase tracking-wide font-bold">
+                  Ready to Optimize Your Support Operations?
+                </p>
+                <p className="mt-4 text-light text-[20px] md:text-[28px] font-bold leading-tight">
+                  Discuss with our experts to define your ideal model.
+                </p>
+
+                <Link
+                  href="/#contact"
+                  className="mt-8 inline-flex items-center justify-center rounded-full bg-light text-dark px-8 py-4 text-[18px] md:text-[20px] font-semibold border border-light/30 hover:shadow-[0_0_0_1px_rgba(178,75,243,0.35)] transition-all duration-300"
+                >
+                  Discuss with us
+                </Link>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
 
