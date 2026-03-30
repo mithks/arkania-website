@@ -40,18 +40,18 @@ export default function SupportModelsPage() {
                   structure that aligns perfectly with your enterprise needs.
                 </p>
 
-                <Link
-                  href="#models-grid"
-                  className="mt-10 inline-flex items-center gap-3 rounded-full bg-light text-dark px-10 py-4 font-semibold text-lg border border-primary/15 shadow-[0_0_0_1px_rgba(178,75,243,0.10)] hover:shadow-[0_0_0_1px_rgba(178,75,243,0.25)] transition-all duration-300"
+                <div
+                  className="mt-10 inline-flex items-center gap-3 rounded-full bg-light text-dark px-10 py-4 font-semibold text-lg border border-primary/15 shadow-[0_0_0_1px_rgba(178,75,243,0.10)]"
+                  aria-hidden="true"
                 >
-                  <span>Explore the models</span>
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary/15 border border-secondary/30"
-                  >
-                    <ChevronDown size={18} className="text-secondary" />
+                  <span className="text-[13px] md:text-[14px] font-bold text-[#5c1c81] uppercase tracking-wide">
+                    Hybrid On-site
                   </span>
-                </Link>
+                  <span className="text-[#B24BF3]">|</span>
+                  <span className="text-[13px] md:text-[14px] font-bold text-[#5c1c81] uppercase tracking-wide">
+                    Dedicated Off-shore
+                  </span>
+                </div>
               </div>
             </div>
           </div>
