@@ -123,7 +123,7 @@ export default function SupportModelsPage() {
 
           {/* CTA - Above Footer */}
           <div className="relative z-10 bg-primary w-full mt-10">
-            <div className="max-w-[1700px] mx-auto px-6 md:px-8 py-16 md:py-24">
+            <div className="max-w-[1700px] mx-auto px-18 md:px-24 py-16 md:py-24">
               <div className="max-w-[900px]">
                 <p className="text-light/80 text-[14px] md:text-[16px] uppercase tracking-wide font-bold">
                   Ready to Optimize Your Support Operations?
